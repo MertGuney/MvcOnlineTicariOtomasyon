@@ -1,0 +1,52 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Cariler
+@{
+    ViewBag.Title = "CariGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="account-settings-container layout-top-spacing">
+    <div class="account-content">
+        <div class="scrollspy-example" data-spy="scroll" data-target="#account-settings-scroll" data-offset="-100">
+            <div class="row">
+                <div class="col-lg-12 col-12  layout-spacing">
+                    <div class="statbox widget box box-shadow">
+                        <div class="widget-header">
+                            <div class="row">
+                                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                    <h4>Cari Güncelleme Sayfası</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-content widget-content-area">
+                            @using (Html.BeginForm("CariGuncelle", "Cari", FormMethod.Post))
+                            {
+                                <div class="form-group mb-4">
+                                    <label>Cari AD</label>
+                                    @Html.ValidationMessageFor(x => x.cariAd, "", new { @style = "color:red" })
+                                    @Html.TextBoxFor(x => x.cariAd, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label>Cari Soyad</label>
+                                    @Html.ValidationMessageFor(x => x.cariSoyad, "", new { @style = "color:red" })
+                                    @Html.TextBoxFor(x => x.cariSoyad, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label>Cari Şehir</label>
+                                    @Html.TextBoxFor(x => x.cariSehir, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label>Cari Mail</label>
+                                    @Html.TextBoxFor(x => x.cariMail, new { @class = "form-control" })
+                                </div>
+                                @Html.HiddenFor(x => x.cariID)
+                                <button class="btn btn-primary"> Güncelle</button>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

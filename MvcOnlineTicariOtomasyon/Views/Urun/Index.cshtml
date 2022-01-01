@@ -1,0 +1,63 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Urun>
+@{
+    Layout = "~/Views/Shared/_DataTableLayout.cshtml";
+}
+
+    <div class="row layout-top-spacing" id="cancel-row">
+
+        <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+            <div class="widget-content widget-content-area br-6">
+                <div class="table-responsive mb-4 mt-4">
+                    <table id="zero-config" class="table table-hover" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Ürün ID</th>
+                                <th>Ürün Ad</th>
+                                <th>Ürün Marka</th>
+                                <th>Ürün Stok</th>
+                                <th>Ürün Alış Fiyatı</th>
+                                <th>Ürün Satış Fiyatı</th>
+                                <th>Ürün Kategori</th>
+                                <th>Ürün Görsel</th>
+                                <th>Güncelle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var x in Model)
+                            {
+                                <tr>
+                                    <td>@x.urunID</td>
+                                    <td>@x.urunAd</td>
+                                    <td>@x.marka</td>
+                                    <td>@x.stok</td>
+                                    <td>@x.alisFiyati</td>
+                                    <td>@x.satisFiyati</td>
+                                    <td>@x.Kategori.kategoriAd</td>
+                                    <td>@x.urunGorsel</td>
+                                    <td><a href="/Urun/UrunGetir/@x.urunID" class="btn btn-warning mb-2 mr-2 btn-rounded">Güncelle<svg> ... </svg></a></td>
+                                    <td><a href="/Urun/UrunSil/@x.urunID" class="btn btn-danger mb-2 mr-2 btn-rounded">Sil<svg> ... </svg></a></td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Ürün ID</th>
+                                <th>Ürün Ad</th>
+                                <th>Ürün Marka</th>
+                                <th>Ürün Stok</th>
+                                <th>Ürün Alış Fiyatı</th>
+                                <th>Ürün Satış Fiyatı</th>
+                                <th>Ürün Kategori</th>
+                                <th>Ürün Görsel</th>
+                                <th>Güncelle</th>
+                                <th>Sil</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>

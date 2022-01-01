@@ -1,0 +1,64 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DataTableLayout.cshtml";
+}
+
+<div class="row layout-top-spacing" id="cancel-row">
+
+    <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+        <div class="widget-content widget-content-area br-6">
+            <div class="table-responsive mb-4 mt-4">
+                <table id="zero-config" class="table table-hover" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Satış ID</th>
+                            <th>Ürün</th>
+                            <th>Cari</th>
+                            <th>Personel</th>
+                            <th>Adet</th>
+                            <th>Fiyat</th>
+                            <th>Toplam</th>
+                            <th>Tarih</th>
+                            <th>Güncelle</th>
+                            <th>Detay</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>@x.satisID</td>
+                                <td>@x.Urun.urunAd</td>
+                                <td>@x.Cariler.cariAd @x.Cariler.cariSoyad</td>
+                                <td>@x.Personel.personelAd @x.Personel.personelSoyad</td>
+                                <td>@x.adet</td>
+                                <td>@x.fiyat</td>
+                                <td>@x.toplamTutar</td>
+                                <td>@x.tarih</td>
+                                <td><a href="/Satis/SatisGetir/@x.satisID" class="btn btn-warning mb-2 mr-2 btn-rounded">Güncelle<svg> ... </svg></a></td>
+                                <td><a href="/Satis/SatisDetay/@x.satisID" class="btn btn-primary mb-2 mr-2 btn-rounded">Detay<svg> ... </svg></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Satış ID</th>
+                            <th>Ürün</th>
+                            <th>Cari</th>
+                            <th>Personel</th>
+                            <th>Adet</th>
+                            <th>Fiyat</th>
+                            <th>Toplam</th>
+                            <th>Tarih</th>
+                            <th>Güncelle</th>
+                            <th>Detay</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

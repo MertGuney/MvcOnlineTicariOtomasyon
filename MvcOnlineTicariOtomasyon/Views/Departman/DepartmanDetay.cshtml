@@ -1,0 +1,54 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Personel>
+@{
+    ViewBag.Title = "DepartmanDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="account-settings-container layout-top-spacing">
+    <div class="account-content">
+        <div class="scrollspy-example" data-spy="scroll" data-target="#account-settings-scroll" data-offset="-100">
+            <div class="row">
+                <div id="tableFooter" class="col-lg-12 col-12 layout-spacing">
+                    <div class="statbox widget box box-shadow">
+                        <div class="widget-header">
+                            <div class="row">
+                                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                    <h4>@ViewBag.d Departmanı</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-content widget-content-area">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-condensed mb-4">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Personel ID</th>
+                                            <th>Personel Ad Soyad</th>
+                                            <th>Personel Gorsel</th>
+                                            <th>Satışlar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var x in Model)
+                                        {
+                                            <tr>
+                                                <td>@x.personelID</td>
+                                                <td>@x.personelAd @x.personelSoyad</td>
+                                                <td>@x.personelGorsel</td>
+                                                <td><a href="/Departman/DepartmanPersonelSatıs/@x.personelID" class="btn btn-danger mb-2 mr-2 btn-rounded">Satışlar<svg> ... </svg></a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            <a href="/Departman/DepartmanEkle" class="btn btn-info mb-2 mr-2 btn-rounded">Yeni Ekle<svg> ... </svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

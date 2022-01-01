@@ -1,0 +1,59 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Cariler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="account-settings-container layout-top-spacing">
+    <div class="account-content">
+        <div class="scrollspy-example" data-spy="scroll" data-target="#account-settings-scroll" data-offset="-100">
+            <div class="row">
+                <div id="tableFooter" class="col-lg-12 col-12 layout-spacing">
+                    <div class="statbox widget box box-shadow">
+                        <div class="widget-header">
+                            <div class="row">
+                                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                    <h4>Cariler</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-content widget-content-area">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-condensed mb-4">
+
+                                    <thead>
+                                        <tr>
+                                            <th>Cari ID</th>
+                                            <th>Cari Ad Soyad</th>
+                                            <th>Cari Şehir</th>
+                                            <th>Cari Mail</th>
+                                            <th>Güncelle</th>
+                                            <th>Sil</th>
+                                            <th>Detay</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var x in Model)
+                                        {
+                                            <tr>
+                                                <td>@x.cariID</td>
+                                                <td>@x.cariAd @x.cariSoyad</td>
+                                                <td>@x.cariSehir</td>
+                                                <td>@x.cariMail</td>
+                                                <td><a href="/Cari/CariGetir/@x.cariID" class="btn btn-warning mb-2 mr-2 btn-rounded">Güncelle<svg> ... </svg></a></td>
+                                                <td><a href="/Cari/CariSil/@x.cariID" class="btn btn-danger mb-2 mr-2 btn-rounded">Sil<svg> ... </svg></a></td>
+                                                <td><a href="/Cari/MusteriSatis/@x.cariID" class="btn btn-primary mb-2 mr-2 btn-rounded">Detay<svg> ... </svg></a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            <a href="/Cari/CariEkle" class="btn btn-info mb-2 mr-2 btn-rounded">Yeni Ekle<svg> ... </svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

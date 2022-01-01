@@ -1,0 +1,62 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Faturalar
+@{
+    ViewBag.Title = "FaturaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="account-settings-container layout-top-spacing">
+    <div class="account-content">
+        <div class="scrollspy-example" data-spy="scroll" data-target="#account-settings-scroll" data-offset="-100">
+            <div class="row">
+                <div class="col-lg-12 col-12  layout-spacing">
+                    <div class="statbox widget box box-shadow">
+                        <div class="widget-header">
+                            <div class="row">
+                                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                                    <h4>Cari Güncelleme Sayfası</h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-content widget-content-area">
+                            @using (Html.BeginForm("FaturaGuncelle", "Fatura", FormMethod.Post))
+                            {
+                                <div class="form-group mb-4">
+                                    <label>Seri No</label>
+                                    @Html.TextBoxFor(x => x.faturaSeriNo, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label>Sıra No</label>
+                                    @Html.TextBoxFor(x => x.faturaSiraNo, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label>Vergi Dairesi</label>
+                                    @Html.TextBoxFor(x => x.vergiDairesi, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label>Saat</label>
+                                    @Html.TextBoxFor(x => x.saat, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label>Tarih</label>
+                                    @Html.TextBoxFor(x => x.tarih,"{0:dd/MM/yyyy}", new { @class = "form-control" })
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label>Cari Şehir</label>
+                                    @Html.TextBoxFor(x => x.teslimEden, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label>Cari Mail</label>
+                                    @Html.TextBoxFor(x => x.teslimAlan, new { @class = "form-control" })
+                                </div>
+                                @Html.HiddenFor(x => x.faturaID)
+                                <button class="btn btn-primary"> Güncelle</button>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

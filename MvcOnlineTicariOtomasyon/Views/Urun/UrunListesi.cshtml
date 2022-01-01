@@ -1,0 +1,47 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Urun>
+@{
+    ViewBag.Title = "UrunListesi";
+    Layout = "~/Views/Shared/_DataTableDownload.cshtml";
+}
+
+<div class="row layout-top-spacing" id="cancel-row">
+    <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+        <div class="widget-content widget-content-area br-6">
+            <div class="table-responsive mb-4 mt-4">
+                <table id="html5-extension" class="table table-hover non-hover" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Ürün ID</th>
+                            <th>Adı</th>
+                            <th>Marka</th>
+                            <th>Stok</th>
+                            <th>Alış Fiyat</th>
+                            <th>Satış Fiyat</th>
+                            <th>Durum</th>
+                            <th>Ürün Görsel</th>
+                            <th>Kategori</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td>@x.urunID</td>
+                                <td>@x.urunAd</td>
+                                <td>@x.marka</td>
+                                <td>@x.stok</td>
+                                <td>@x.alisFiyati</td>
+                                <td>@x.satisFiyati</td>
+                                <td>@x.durum</td>
+                                <td>@x.urunGorsel</td>
+                                <td>@x.Kategori.kategoriAd</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
